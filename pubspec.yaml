@@ -1,0 +1,28 @@
+name: ipquality
+description: IP质量检测工具
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.4.9
+  dio: ^5.4.0
+  url_launcher: ^6.2.5
+  json_annotation: ^4.8.1
+  html: ^0.15.4
+  flutter_curl: ^0.6.0 
+
+  cupertino_icons: ^1.0.2
+  http: ^1.2.1 
+
+dev_dependencies:
+  build_runner: ^2.4.7
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
