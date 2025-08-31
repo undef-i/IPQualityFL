@@ -1,5 +1,3 @@
-// 文件: lib/main.dart
-
 import 'package:flutter/material.dart';
 import 'ui/report_screen.dart';
 
@@ -14,7 +12,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'IP质量检测',
-      // 使用基于种子颜色的现代主题
       theme: ThemeData.from(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.blue,
@@ -29,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      themeMode: ThemeMode.system, // 自动适应系统亮暗模式
+      themeMode: ThemeMode.system,
       home: ReportScreen(),
     );
   }

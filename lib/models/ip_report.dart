@@ -1,6 +1,5 @@
-// 文件 1/3: lib/models/ip_report.dart
+abstract class ReportUpdate {}
 
-// 基础信息模型
 class BasicInfo {
   final String ipAddress;
   final String asn;
@@ -27,7 +26,6 @@ class BasicInfo {
   });
 }
 
-// 风险评分模型
 class RiskScore {
   final int score;
   final String level;
@@ -48,7 +46,6 @@ class RiskScore {
   }
 }
 
-// 风险因子模型
 class RiskFactors {
   final Map<String, bool?> proxy;
   final Map<String, bool?> vpn;
@@ -56,6 +53,7 @@ class RiskFactors {
   final Map<String, bool?> server;
   final Map<String, bool?> abuser;
   final Map<String, bool?> robot;
+  final Map<String, String?> region;
 
   RiskFactors({
     required this.proxy,
@@ -64,30 +62,32 @@ class RiskFactors {
     required this.server,
     required this.abuser,
     required this.robot,
+    required this.region,
   });
 }
 
-// 流媒体解锁信息模型 (已扩展)
 class MediaUnlockInfo {
   final String name;
-  final String status; // '解锁', '仅自制', '屏蔽', '失败' 等
+  final String status;
   final String region;
-  final String type;   // '原生', 'DNS' 等
+  final String? unlockType;
 
   MediaUnlockInfo({
     required this.name,
     required this.status,
     this.region = "",
-    this.type = "原生",
+    this.unlockType,
   });
 }
-
-// Stream的更新事件模型
-abstract class ReportUpdate {}
 
 class BasicInfoUpdate extends ReportUpdate {
   final BasicInfo basicInfo;
   BasicInfoUpdate(this.basicInfo);
+}
+
+class MediaUnlockUpdate extends ReportUpdate {
+  final List<MediaUnlockInfo> mediaUnlockInfos;
+  MediaUnlockUpdate(this.mediaUnlockInfos);
 }
 
 class IpTypesUpdate extends ReportUpdate {
@@ -103,9 +103,4 @@ class RiskScoresUpdate extends ReportUpdate {
 class RiskFactorsUpdate extends ReportUpdate {
   final RiskFactors riskFactors;
   RiskFactorsUpdate(this.riskFactors);
-}
-
-class MediaUnlockUpdate extends ReportUpdate {
-  final List<MediaUnlockInfo> mediaUnlockInfos;
-  MediaUnlockUpdate(this.mediaUnlockInfos);
 }
