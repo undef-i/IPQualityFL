@@ -211,7 +211,7 @@ class _ReportScreenState extends State<ReportScreen> {
           child: BackdropFilter(
             filter: ui.ImageFilter.blur(sigmaX: 10, sigmaY: 10),
             child: Container(
-              color: Theme.of(context).colorScheme.surface.withOpacity(0.7),
+              color: Theme.of(context).colorScheme.surface.withOpacity(0.5),
               child: AppBar(
                 title: const Text('IP 质量检测'),
                 centerTitle: false,
@@ -287,8 +287,7 @@ class _ReportScreenState extends State<ReportScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('IP 地址',
-                              style: TextStyle(fontSize: 16)),
+                          const Text('IP 地址', style: TextStyle(fontSize: 16)),
                           const SizedBox(height: 4),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -331,12 +330,14 @@ class _ReportScreenState extends State<ReportScreen> {
                     ),
                     const SizedBox(height: 16),
                     ListTile(
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 16),
                         leading: const Icon(Icons.dns_rounded),
                         title: const Text('自治系统'),
                         subtitle: Text('${info.asn} - ${info.organization}')),
                     ListTile(
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 16),
                         leading: const Icon(Icons.public_rounded),
                         title: const Text('使用地'),
                         subtitle: Text(info.actualRegionInfo)),
@@ -344,12 +345,14 @@ class _ReportScreenState extends State<ReportScreen> {
                         info.registeredRegionInfo.isNotEmpty &&
                         !info.registeredRegionInfo.contains("N/A"))
                       ListTile(
-                          contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 16),
                           leading: const SizedBox(width: 24),
                           title: const Text('注册地'),
                           subtitle: Text(info.registeredRegionInfo)),
                     ListTile(
-                      contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                      contentPadding:
+                          const EdgeInsets.symmetric(horizontal: 16),
                       leading: const Icon(Icons.location_city_rounded),
                       title: const Text('城市 / 时区'),
                       subtitle: Text(
@@ -357,7 +360,8 @@ class _ReportScreenState extends State<ReportScreen> {
                     ),
                     if (info.dmsLocation != null && info.dmsLocation != "N/A")
                       ListTile(
-                          contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+                          contentPadding:
+                              const EdgeInsets.symmetric(horizontal: 16),
                           leading: const Icon(Icons.map_outlined),
                           title: const Text('坐标'),
                           subtitle: Text(info.dmsLocation!)),
